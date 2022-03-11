@@ -1,0 +1,85 @@
+
+resource "aws_s3_bucket" "bucket" {
+  bucket = "${var.bucket-name}"
+  policy = <<POLICY
+
+{
+  "Version":"2012-10-17",
+  "Statement":[
+    {
+      "Sid":"PublicReadGetObject",
+      "Effect":"Allow",
+      "Principal":"*",
+      "Action":"S3:GetObject",
+      "Resource":"arn:aws:s3:::${var.bucket-name}/*"
+    }
+  ]
+}
+POLICY
+  #acl    = "public-read"
+  #policy = file("policy.json")
+  # website {
+  #     index_document = "index.html"
+  #   }
+  # #tags = var.demo-terraform-s3-tags
+  force_destroy = true  
+  #   lifecycle {
+  #   prevent_destroy = false
+  # }
+  # tags = {
+  #   Name = "${var.bucket-name}"
+  # }
+  # website {
+  #     index_document = "index.html"
+  #   }
+}
+# resource "aws_s3_bucket_policy" "public_access" {
+#   bucket = "${aws_s3_bucket.bucket.id}"
+#   policy = "${data.aws_iam_policy_document.allow_public_access.json}"
+# }
+
+# data "aws_iam_policy_document" "allow_public_access" {
+#  statement {
+#     sid = "PublicReadGetObject"
+#     effect = "Allow"
+#     actions = [
+#       "s3:GetObject"
+#     ]
+#     resources = [
+#       #"arn:aws:s3:::${aws_s3_bucket.bucket.arn}/*"
+#       "${aws_s3_bucket.bucket.arn}/*"
+#     ]
+#   }
+
+# }
+
+# resource "aws_s3_bucket_website_configuration" "pmc-web"{
+
+#   bucket  = "${aws_s3_bucket.bucket.bucket}"
+
+#   index_document {
+#     suffix  = "index.html"
+  
+#   }
+
+#   error_document{
+#     key = "error.html"
+#   }  
+# }
+
+# resource "aws_s3_bucket_public_access_block" "bucket" {
+#   bucket = "${aws_s3_bucket.bucket.id}"
+
+#   block_public_acls   = true
+#   block_public_policy = true
+# }
+
+# resource "aws_s3_bucket_object" "object1" {
+#     bucket = "${var.bucket-name}"
+#     key = var.key
+#     #source = "F:\\GIIT\\terraform-project-capsule\\projectA\\modules\\s3-web-hosting\\myfiles\\*.html"
+#     source = "index.html"
+
+# }
+
+
