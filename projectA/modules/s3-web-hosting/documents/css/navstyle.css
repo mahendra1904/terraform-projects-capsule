@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --maincolor: rgb(9, 117, 72);
+
+}
+
+html{
+    font-size: 62.5%;
+}
+
+nav{
+    /* background: var(--maincolor); */
+    background: linear-gradient(to right, #283c86, #45a247);
+    height: 8rem;
+    width: 100%;
+
+}
+
+label.logo{
+    color: white;
+    font-size: 3.5rem;
+    line-height: 8rem;
+    padding: 0px, 10rem;
+    font-weight: bold;
+    margin-left: 6rem;
+    font-family: 'Patrick Hand', cursive;
+
+}
+
+nav ul{
+    float: right;
+    margin-right: 5rem;
+}
+
+nav ul li{
+    display: inline;
+    line-height: 8rem;
+    margin: 0 0.5rem;
+    list-style: none;
+}
+
+nav ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    border: 3px solid white ;
+    background: transparent;
+    border-radius: 3rem;
+    padding: 0.2rem 1rem;
+    transition: all 0.5s linear;
+    outline: none;
+}
+
+nav ul li a.active{
+    background: #058f3a;
+}
+
+nav ul li a:hover{
+    transform: scale3d(1.5);
+    background: #fff;
+    color: #44ce79;
+    outline: none;
+}
+
+.checkbtn{
+    font-size: 3rem;
+    color: white;
+    float: right;
+    line-height: 8rem;
+    margin-right: 4rem;
+    cursor: pointer;
+    display: none;
+}
+
+#check{
+    display: none;
+}
+
+@media (max-width: 952px){
+    html{
+        font-size: 51%;
+    }
+}
+
+@media (max-width: 768px){
+    .checkbtn{
+        display: block;
+    }
+
+    nav ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #2c3e50;
+        top: 8rem;
+        left: -100%;
+        text-align: center;
+        z-index: 2;
+        transition: all 0.5s;
+    }
+    nav ul li{
+        display: block;
+        margin: 5rem 0;
+        line-height: 3rem;
+    }
+
+    nav ul li a:hover, nav ul li a.active{
+        background: none;
+        color: #0082e6;
+    }
+
+    #check:checked ~ul{
+        left: 0;
+    }
+
+}
+
+
+.section1{
+    height: 85vh;
+    width: 100%;
+    /* background: linear-gradient(90deg, rgba(19,152,106,1) 0%, rgba(5,79,30,0.9643207624846813) 100%); */
+    background: linear-gradient(to right, #283c86, #45a247);
+    clip-path: circle(60.7% at 50% 24%);
+    z-index: -1;
+}
+
+.header-text{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-text h2{
+    color: rgb(212, 147, 26);
+    font-size: 3rem;
+    font-weight:lighter;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 3px;
+    text-shadow: 0 0 5px black;
+}
+
+.header-text p{
+    color: #fff;
+    font-size: 1.4rem;
+}
+
+.header-text-searchitem{
+    display: flex;
+    min-width: 50px;
+    flex-wrap: wrap;
+    width: 90%;
+    justify-content: space-around;
+}
+
+.header-text-searchitem a{
+    text-decoration: none;
+    color: #fff;
+    padding: 2px 5px;
+    border: 3px solid rgb(212, 147, 26);
+    border-radius: 3rem;
+    margin-top: 2rem;
+    font: bolder;
+    font-size: 2rem;
+    outline: none;
+    transition: all 1s;
+}
+
+.header-text-searchitem a:hover{
+    color: var(--maincolor);
+    background-color: #fff;
+    transform: scale(1.2);
+}
+
+.searchicons{
+    margin: 2px 10px;
+    color: #fff;
+}
+.header-text-searchitem a:hover .searchicons{
+    color: rgb(212, 147, 26);
+}
+    
+
+.section2{
+    background: aliceblue;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.s2div1{
+    background: white;
+    width: 75%;
+    height: auto;
+    margin-top: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 0 10px 10px var(--maincolor);
+    padding: 1rem 2rem;
+    border-radius: 3rem;
+}
+
+.s2div1 h2{
+    font-size: 3rem;
+    color: rgb(212, 147, 26);
+    font-family: 'Anton', sans-serif;
+    font-weight: lighter;
+    letter-spacing: 3px;
+    text-shadow: 0 0 1.4px black;
+}
+
+.s2div1 p{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--maincolor);
+    line-height: 2rem;
+    justify-self: auto;
+   
+}
+
+.s2div2{
+    display: flex;
+    margin-top: 8rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 75%;
+    background: #fff;
+    border-radius: 2rem;
+    box-shadow: 0 0 10px 10px var(--maincolor)
+}
+
+.s2div2 h2{
+    font-weight: 1200;
+    font-size: 3.5rem;
+    color: rgb(212, 147, 26);
+    margin-bottom: 2rem;
+    font-family: 'Anton', sans-serif;
+    font-weight: lighter;
+    letter-spacing: 3px;
+    text-shadow: 0 0 1.4px black;
+}
+
+.personalprofiles{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.person{
+    display: flex;
+    flex-direction: column;
+    margin: 5rem 2rem;
+    align-items: center;
+    justify-content: center;
+    /* border: 2px solid black; */
+    min-width: 280px;
+    min-height: 200px;
+    position: relative;
+    transition: all 0.5s;
+}
+
+.jackteam{
+    display: flex;
+    flex-direction:column;
+    align-items: center;   
+}
+   
+
+.jackteam img{
+    align-self: center;
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+}
+
+.jackteam h4{
+    position: absolute;
+    font-size: 2rem;
+    margin-top: 5px;
+    color: rgb(212, 147, 26);
+    bottom: 30px;
+}
+
+.person:hover{
+    transform: translateY(-10px);
+    border: 0 -1.5px 10px 10px rgb(36, 33, 33);
+}
+
+
+.newscuttings{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.newslogo{
+    display:flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content:space-evenly;
+}
+
+
+
+.newslogo img{
+    min-width: 180px;;
+    height: 180px;
+    cursor: pointer;
+    display: flex;
+    animation: movement 2s linear infinite alternate;
+}
+
+@keyframes movement{
+    0%{
+        transform: translateX(-20px);
+    }
+    100%{
+        transform: translateX(20px);
+    }
+}

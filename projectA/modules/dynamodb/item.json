@@ -1,0 +1,17 @@
+{
+    "id": {
+      "S": "101"
+    },
+    "Name": {
+      "S": "Mahnedra"
+    },
+    "Emp_id": {
+      "S": "G135"
+    },
+    "Project": {
+      "S": "ProjectA"
+    },
+    "Team": {
+      "S": "TeamC"
+    }
+} 
