@@ -11,15 +11,15 @@ resource "aws_elastic_beanstalk_environment" "ebs_app_env"{
     setting {
     namespace = "aws:ec2:vpc"
     name      = "VPCId"
-    value     = "vpc-779ced0a"
+    value     = var.vpc_id
   }
 
   setting {
     namespace = "aws:ec2:vpc"
     name      = "Subnets"
-    value     = "subnet-982504c7"
+    value     = var.subnet_id
   }
-  cname_prefix = "ovo-microservice-example-uat-domain"
+  cname_prefix = var.cname_prefix
   setting {
     namespace = "aws:autoscaling:launchconfiguration"
     name = "IamInstanceProfile"
@@ -35,7 +35,7 @@ resource "aws_elastic_beanstalk_environment" "ebs_app_env"{
   setting {
     namespace = "aws:autoscaling:launchconfiguration"
     name = "InstanceType"
-    value = "t2.micro"
+    value = var.instance_type
   }
   
   setting {

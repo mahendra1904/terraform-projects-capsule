@@ -13,3 +13,22 @@ variable "solution_stack_name"{
     description     =   "Environment for the application"
 }
 
+variable "vpc_id" {
+    type = string
+    description = "vpc id of the infrastructure"
+
+}
+variable "subnet_id" {
+    type = string
+    description = "subnet id of the infrastructure"
+}
+
+variable "cname_prefix" {
+    type = string
+    description = "cname of the application"
+}
+
+variable "instance_type" {
+    type = string
+    description = "server type of the application"
+}
