@@ -23,20 +23,37 @@ module "vpc-pmc" {
 #   write_capacity = 20  
 # }
 
-module "ebs-app"{
-  source   =   "./modules/ebs"
+# module "ebs-app"{
+#   source   =   "./modules/ebs"
+#   ebs_app_name    =   "nodejs-application"
+#   env_name  = "node-app-env"
+#   #solution_stack_name = "64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4"  
+#   solution_stack_name   = "64bit Amazon Linux 2 v5.5.0 running Node.js 16"
+#   vpc_id    = module.vpc-pmc.vpc_id
+# #   module.<MODULE_NAME>.<OUTPUT_NAME>
+#   subnet_id = module.vpc-pmc.public_subnet_id
+#   cname_prefix  = "pmc-giit-pvt"
+#   instance_type = "t2.micro"
+# }
+
+#   module.<MODULE_NAME>.<OUTPUT_NAME>
+
+module "ebs-s3-app"{
+  source   =   "./modules/ebs-s3"
   ebs_app_name    =   "nodejs-application"
-  env_name  = "node-app-env"
-  #solution_stack_name = "64bit Amazon Linux 2015.03 v2.0.3 running Go 1.4"  
+  env_name  = "node-app-env" 
   solution_stack_name   = "64bit Amazon Linux 2 v5.5.0 running Node.js 16"
   vpc_id    = module.vpc-pmc.vpc_id
+#   module.<MODULE_NAME>.<OUTPUT_NAME>
   subnet_id = module.vpc-pmc.public_subnet_id
   cname_prefix  = "pmc-giit-pvt"
   instance_type = "t2.micro"
+  bucket  = "apppmc-giitweb"
+  key   =   "nodeAppCustomecodeEBS.zip"
+  app_version_name = "v2-app"
 
 }
 
-#   module.<MODULE_NAME>.<OUTPUT_NAME>
 
 
 
