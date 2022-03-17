@@ -7,15 +7,15 @@ resource "aws_s3_bucket" "app_bucket" {
     enabled = true
   }
 
-  lifecycle_rule {
-    id = "retention"
-    enabled = true
+  # lifecycle_rule {
+  #   id = "retention"
+  #   enabled = true
 
 
-    noncurrent_version_expiration {
-      days = 90
-    }
-  }
+  #   noncurrent_version_expiration {
+  #     days = 90
+  #   }
+  # }
 }
 
 
@@ -35,14 +35,18 @@ resource "aws_elastic_beanstalk_application_version" "app_version" {
   name        = var.app_version_name
   application = aws_elastic_beanstalk_application.ebs-app.name
   bucket      = aws_s3_bucket.app_bucket.id
-  key         = aws_s3_bucket_object.app_code.id
+  #key         = aws_s3_bucket_object.app_code.id
+  key         = aws_s3_bucket_object.app_code.key
+  depends_on  = [aws_elastic_beanstalk_application.ebs-app]
 }
 
 
 resource "aws_elastic_beanstalk_environment" "ebs_app_env"{
-    name    =   var.env_name
+    #name    =   var.env_name
+    name     =  aws_elastic_beanstalk_application.ebs-app.name
     application   =   "${aws_elastic_beanstalk_application.ebs-app.name}"
     solution_stack_name = var.solution_stack_name
+     version_label  = aws_elastic_beanstalk_application_version.app_version.name
 
     setting {
     namespace = "aws:ec2:vpc"
