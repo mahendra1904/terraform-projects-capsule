@@ -1,3 +1,4 @@
+# resource to create a ec2
 resource "aws_instance" "server_pmcA"{
          
          ami   =   data.aws_ami.amzlinux.id

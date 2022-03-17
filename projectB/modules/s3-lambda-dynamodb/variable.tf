@@ -1,3 +1,5 @@
+# all the variables file
+
 variable "bucket-name" {
     type    =   string
     description     =   "give the unique name of then bucket"

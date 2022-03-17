@@ -1,5 +1,5 @@
 
-
+# all the variables in this file
 
 variable "vpc_cidr"{
     type    =   string

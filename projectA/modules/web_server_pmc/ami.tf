@@ -1,3 +1,4 @@
+# data resource for the ami id foe the ec2
 
 data "aws_ami" "amzlinux" {
   most_recent = true

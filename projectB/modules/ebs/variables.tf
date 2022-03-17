@@ -1,3 +1,5 @@
+# all variables of the resource
+
 variable "ebs_app_name"{
     type    =   string
     description     =   "name of the application"

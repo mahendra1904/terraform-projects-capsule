@@ -1,3 +1,5 @@
+# all the variables for the block
+
 variable "instance_type" {
     type = string
     description = "type of the instance-type"

@@ -1,3 +1,4 @@
+# variables files for the resource
 variable "name_http" {
     type = string
     description =   "security group for the web server"

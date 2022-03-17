@@ -1,4 +1,5 @@
 
+# variables of the resource
 variable "ami" {
     type = string
     description = "ami_id for web-server "

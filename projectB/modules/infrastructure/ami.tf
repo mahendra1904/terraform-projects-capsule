@@ -1,4 +1,6 @@
 
+# data source to get the ID of a registered AMI in AWS
+
 data "aws_ami" "amzlinux" {
   most_recent = true
   owners = [ "amazon" ]

@@ -1,3 +1,4 @@
+# define some output varibale that will help to pass the value in different module
 
 output "vpc_id" {
   description = "vpc id of the  infrastructure"

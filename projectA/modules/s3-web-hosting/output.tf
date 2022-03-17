@@ -1,3 +1,5 @@
+# output variables to access the web details of the endpoins, bucket arn ...etc
+
  output "web_url" {
      value = "${aws_s3_bucket.bucket.website_endpoint}"
  }

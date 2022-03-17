@@ -1,7 +1,8 @@
 
+# create s3 bucket to host the static web site
 resource "aws_s3_bucket" "bucket" {
     bucket = "${var.bucket-name}"
-      policy = <<POLICY
+      policy = <<POLICY # s3 bucket inline policy to access the bucket publically
 {
   "Version":"2012-10-17",
   "Statement":[
@@ -14,7 +15,7 @@ resource "aws_s3_bucket" "bucket" {
     }
   ]
 }
-POLICY
+POLICY  # enable the bucket for static web hosting
     website   {
        index_document    =   "index.html"
        
@@ -78,6 +79,8 @@ resource "aws_s3_bucket_object" "web_page"{
     source  =   "F:/GIIT/terraform-project-capsule/projectA/modules/s3-web-hosting/index.html"
 }
 
+
+# to upload the multiple file(objects) in aws s3 bucket
 # resource "aws_s3_bucket_object" "web_page" {
 #   for_each = fileset("./documents/", "*")
 #   bucket = "${aws_s3_bucket.bucket}"

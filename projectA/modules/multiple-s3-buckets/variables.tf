@@ -1,4 +1,4 @@
-
+# this varibale is list type so that multiple s3 bucket can be created
 variable "s3_bucket_name" {
     type    =   list
     description     =   "create multiple s3 bucket"

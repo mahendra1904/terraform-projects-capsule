@@ -1,3 +1,5 @@
+
+# terraform block for terraform version and aws version
 terraform {
   required_version = "~>1.1.7"
   required_providers {
