@@ -40,8 +40,6 @@ module "pipeline" {
 
 } 
 
-
-
 module "ecs-deployment" {
   source            = "./modules/ecs-cluster"
   ecs_cluster_name = "app_deploy"
