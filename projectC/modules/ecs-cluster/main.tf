@@ -1,7 +1,10 @@
+# create the ecs-cluster to deploy the build projects
+
 resource "aws_ecs_cluster" "this" {
     name =  var.ecs_cluster_name  
 }
 
+# create the task definition for the cluster
 resource "aws_ecs_task_definition" "app" {
     family = "deployment"
     execution_role_arn = aws_iam_role.ecs_Role.arn
@@ -25,7 +28,7 @@ resource "aws_ecs_task_definition" "app" {
     }])
 }
 
-
+# create the service for the above task
 resource "aws_ecs_service" "app_service" {
     name = var.service_name
     cluster = aws_ecs_cluster.this.id
@@ -40,19 +43,23 @@ resource "aws_ecs_service" "app_service" {
   
 }
 
-
+# default vpc
 resource "aws_default_vpc" "default_vpc" {
 }
+
+# default subnet 1
 resource "aws_default_subnet" "default_subnet_a" {
   availability_zone = "us-east-1a"
   
 }
 
+# default subnet 2
 resource "aws_default_subnet" "default_subnet_b" {
    availability_zone = "us-east-1b"
   
 }
 
+# create an iam role for ecs cluster
 
 resource "aws_iam_role" "ecs_Role" {
   name = "ecs_role"
@@ -70,6 +77,7 @@ data "aws_iam_policy_document" "assume_role_policy"{
   }
 }
 
+# resouce to create a iam policy for ecs task
 resource "aws_iam_role_policy_attachment" "ecsTaskEcecutionRole_policy" {
   role = "${aws_iam_role.ecs_Role.name}"
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"

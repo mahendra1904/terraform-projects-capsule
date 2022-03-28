@@ -1,3 +1,4 @@
+# aws s3 bucket to store the terraform.tfstate file
 resource "aws_s3_bucket" "bucket" {
   bucket = "${var.bucket_name}"
   versioning   {
@@ -7,6 +8,9 @@ resource "aws_s3_bucket" "bucket" {
   tags = {
     Name = "${var.bucket_name}"
   }
+  lifecycle {
+      prevent_destroy = true
+    }
 }
 
 
@@ -17,6 +21,9 @@ resource "aws_s3_bucket" "artifact" {
     }
     tags = {
       "Name" = var.artifact_bucket
+    }
+      lifecycle {
+      prevent_destroy = true
     }
   
 }

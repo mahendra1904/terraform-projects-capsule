@@ -1,3 +1,5 @@
+# all the variables name
+
 variable "bucket_name" {
     type    =   string
     description     =   "give the unique name of then bucket"

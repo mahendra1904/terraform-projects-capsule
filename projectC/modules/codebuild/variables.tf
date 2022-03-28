@@ -1,3 +1,4 @@
+# all the variables in the codebuild project
 variable "codebuildname" {
     type =  string
   

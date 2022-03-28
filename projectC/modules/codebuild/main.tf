@@ -1,7 +1,7 @@
-
+# create aww codebuild resouce
 resource "aws_codebuild_project" "codebuild" {
     name = var.codebuildname
-    service_role = var.codebuild_service_role
+    service_role = var.codebuild_service_role 
     tags = {
       "Environment" = var.env
     }
@@ -9,7 +9,7 @@ resource "aws_codebuild_project" "codebuild" {
     artifacts {
     type = "NO_ARTIFACTS"
   }
-
+    # environment for codebuild
     environment {
       compute_type  =   "BUILD_GENERAL1_SMALL"
       image                       = "aws/codebuild/standard:5.0"
@@ -31,7 +31,7 @@ resource "aws_codebuild_project" "codebuild" {
     }
 
   }
-
+  # source coe from it will create the build project
   source {
     type            = "GITHUB"
     location        = "https://github.com/mahendra1904/node-app"
@@ -43,6 +43,7 @@ resource "aws_codebuild_project" "codebuild" {
   }
 }
 
+# resource to create webhook
 
 resource "aws_codebuild_webhook" "webhook" {
   project_name = aws_codebuild_project.codebuild.name

@@ -1,3 +1,4 @@
+# resource to create a pipeline
 
 resource "aws_codepipeline" "pipeline_pmc" {
     name    =   var.pipeline_name
@@ -68,16 +69,17 @@ resource "aws_codestarconnections_connection" "git_connect" {
   
 }
 
-
+# create aws s3 bucket to store  artifact 
 resource "aws_s3_bucket" "codepipeline_bucket" {
   bucket = var.pipeline_bucket
 }
-
+ # provide the s3 bucket acl
 resource "aws_s3_bucket_acl" "codepipeline_bucket_acl" {
   bucket = aws_s3_bucket.codepipeline_bucket.id
   acl    = "private"
 }
 
+# create a iam role for codepipeline
 resource "aws_iam_role" "codepipeline_role" {
   name = "test-role"
 
@@ -97,6 +99,7 @@ resource "aws_iam_role" "codepipeline_role" {
 EOF
 }
 
+# resource to create a iam role policy for codepipeline
 resource "aws_iam_role_policy" "codepipeline_policy" {
   name = "codepipeline_policy"
   role = aws_iam_role.codepipeline_role.id

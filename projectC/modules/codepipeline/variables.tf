@@ -1,4 +1,5 @@
 
+# all the variables of the projects
 variable "pipeline_name" {
     type = string
   

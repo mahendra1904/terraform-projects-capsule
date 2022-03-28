@@ -1,4 +1,5 @@
 
+# resource to create the codebuild
 resource "aws_iam_role" "codebuild_role" {
   name = var.codebuild_iam_role
 
@@ -25,7 +26,7 @@ EOF
 }  */
 
 
-
+# resource to attached the aws managed policy to codebuild role
 resource "aws_iam_role_policy_attachment" "codebuild-role-policy-attach1" {
   count      = "${length(var.managed_policies)}"
   policy_arn = "${element(var.managed_policies, count.index)}"
