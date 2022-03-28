@@ -2,7 +2,16 @@
 # create s3 bucket to host the static web site
 resource "aws_s3_bucket" "bucket" {
     bucket = "${var.bucket-name}"
-      policy = <<POLICY # s3 bucket inline policy to access the bucket publically
+      # enable the bucket for static web hosting
+    website   {
+       index_document    =   "index.html"
+       
+   }
+  tags  =   {
+      Name  =   "web"
+      Environment   =   "Dev"
+  }
+  policy = << POLICY # s3 bucket inline policy to access the bucket publically
 {
   "Version":"2012-10-17",
   "Statement":[
@@ -15,15 +24,7 @@ resource "aws_s3_bucket" "bucket" {
     }
   ]
 }
-POLICY  # enable the bucket for static web hosting
-    website   {
-       index_document    =   "index.html"
-       
-   }
-  tags  =   {
-      Name  =   "web"
-      Environment   =   "Dev"
-  }
+POLICY  
 }
 
 # resource "aws_s3_bucket_policy" "public_access" {

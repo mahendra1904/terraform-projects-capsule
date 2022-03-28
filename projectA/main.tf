@@ -11,6 +11,7 @@ module "web_server" {
     az  =   "us-east-1a"
 }
 
+/*
 # module to create a s3 bucket
 module "s3" {
   source = "./modules/s3"
@@ -42,13 +43,13 @@ module "iam-role"{
 }
 
 # module to create s3 web hosting
-module "static-web-hosting" {
+ module "static-web-hosting" {
 
   source      = "./modules/s3-web-hosting"
   bucket-name = "pmc-tech-art-pvt"
   #key         = "web"
 
-}
+} */
 
 
 

@@ -46,7 +46,6 @@ resource "aws_elastic_beanstalk_environment" "ebs_app_env"{
     namespace = "aws:elasticbeanstalk:healthreporting:system"
     name = "SystemType"
     value = "enhanced"
-    
   }
   
 
