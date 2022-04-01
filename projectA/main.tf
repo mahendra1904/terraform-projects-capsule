@@ -3,13 +3,13 @@ provider "aws" {
 }
 
 # module to create a web_server (that is a ec2_instance)
-module "web_server" {
+/* module "web_server" {
 
     source  =   "./modules/web_server_pmc"
     ami  =   "ami-0c293f3f676ec4f90"
     instance_type   =   "t2.micro"
     az  =   "us-east-1a"
-}
+} */
 
 /*
 # module to create a s3 bucket
@@ -42,14 +42,15 @@ module "iam-role"{
   source  = "./modules/iam" 
 }
 
-# module to create s3 web hosting
+*/
+#module to create s3 web hosting
  module "static-web-hosting" {
 
   source      = "./modules/s3-web-hosting"
   bucket-name = "pmc-tech-art-pvt"
   #key         = "web"
 
-} */
+} 
 
 
 
